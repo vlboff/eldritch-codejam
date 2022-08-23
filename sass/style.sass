@@ -1,0 +1,78 @@
+body
+    background: url('../assets/bg.jpg') center (center / cover) no-repeat
+
+main
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 35px 150px
+
+    .ancients
+        display: flex
+        justify-content: space-between
+        height: 40%
+        img
+            height: 335px
+            width: 228px
+            margin: 0 20px
+            width: 20%
+
+    .levels
+        display: flex
+        justify-content: space-between
+        height: 10%
+        margin: 40px 
+        button
+            min-width: 120px    
+            min-height: 30px 
+            margin: 0 20px
+        
+    .shuffle
+        height: 10%
+        button
+            min-width: 120px    
+            min-height: 30px 
+            margin: 0 20px
+
+    .deck-container
+        margin-top: 40px
+        display: flex
+        justify-content: space-around
+        align-items: center
+        height: 40%
+        width: 60%
+        .current-state
+            width: 150px
+            .stage-container
+                display: flex
+                flex-direction: column
+                align-items: center
+                .stage-text
+                    margin: 5px
+                    color: #FFFFFF
+                .dots-container
+                    display: flex
+                    justify-content: space-between
+                    gap: 10px
+                    .dot
+                        width: 30px
+                        height: 30px
+                        border-radius: 50%
+                    .green
+                        background: #12722f
+                    .brown
+                        background: #ca8d1c
+                    .blue
+                        background: #2b4ad6
+                        
+
+
+        .deck
+            height: 335px
+            width: 228px
+            background: url('../assets/mythicCardBackground.png') center (center / cover) no-repeat
+        .last-card
+            height: 335px
+            width: 228px
+
+
