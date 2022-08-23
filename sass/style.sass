@@ -1,5 +1,10 @@
 body
-    background: url('../assets/bg.jpg') center (center / cover) no-repeat
+    background: url('../assets/bg.jpg') center (center / cover) 
+
+.active
+    visibility: visible
+.border
+    border: solid 2px #d31818
 
 main
     display: flex
@@ -10,29 +15,33 @@ main
     .ancients
         display: flex
         justify-content: space-between
-        height: 40%
+        
         img
             height: 335px
             width: 228px
             margin: 0 20px
-            width: 20%
-
+            cursor: pointer
+            // border: solid 2px #d31818
     .levels
         display: flex
         justify-content: space-between
         height: 10%
         margin: 40px 
+        visibility: hidden
         button
             min-width: 120px    
             min-height: 30px 
             margin: 0 20px
+            cursor: pointer
         
     .shuffle
         height: 10%
+        visibility: hidden
         button
             min-width: 120px    
             min-height: 30px 
             margin: 0 20px
+            cursor: pointer
 
     .deck-container
         margin-top: 40px
@@ -41,6 +50,7 @@ main
         align-items: center
         height: 40%
         width: 60%
+        visibility: visible
         .current-state
             width: 150px
             .stage-container
@@ -58,6 +68,9 @@ main
                         width: 30px
                         height: 30px
                         border-radius: 50%
+                        display: flex
+                        align-items: center
+                        justify-content: center
                     .green
                         background: #12722f
                     .brown
@@ -70,6 +83,7 @@ main
         .deck
             height: 335px
             width: 228px
+            cursor: pointer
             background: url('../assets/mythicCardBackground.png') center (center / cover) no-repeat
         .last-card
             height: 335px
