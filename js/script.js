@@ -369,6 +369,14 @@ deck.addEventListener('click', () => {
         let n = getRandomNum (0, (mainDeck[2].length - 1));
         url = mainDeck[2][n];
 
+        if (url.color === 'green') {
+            firstGreenDot.textContent = `${Number(firstGreenDot.textContent) - 1}`;
+        } else if (url.color === 'brown') {
+            firstBrownDot.textContent = `${Number(firstBrownDot.textContent) - 1}`;
+        } else if (url.color === 'blue') {
+            firstBlueDot.textContent = `${Number(firstBlueDot.textContent) - 1}`;
+        }
+
         let temp = mainDeck[2][n];
         mainDeck[2][n] = mainDeck[2][0];
         mainDeck[2][0] = temp;
@@ -377,6 +385,14 @@ deck.addEventListener('click', () => {
     } else if (mainDeck[1].length !== 0) {
         let n = getRandomNum (0, (mainDeck[1].length - 1));
         url = mainDeck[1][n];
+
+        if (url.color === 'green') {
+            secondGreenDot.textContent = `${Number(secondGreenDot.textContent) - 1}`;
+        } else if (url.color === 'brown') {
+            secondBrownDot.textContent = `${Number(secondBrownDot.textContent) - 1}`;
+        } else if (url.color === 'blue') {
+            secondBlueDot.textContent = `${Number(secondBlueDot.textContent) - 1}`;
+        }
 
         let temp = mainDeck[1][n];
         mainDeck[1][n] = mainDeck[1][0];
@@ -387,6 +403,14 @@ deck.addEventListener('click', () => {
         let n = getRandomNum (0, (mainDeck[0].length - 1));
         url = mainDeck[0][n];
 
+        if (url.color === 'green') {
+            thirdGreenDot.textContent = `${Number(thirdGreenDot.textContent) - 1}`;
+        } else if (url.color === 'brown') {
+            thirdBrownDot.textContent = `${Number(thirdBrownDot.textContent) - 1}`;
+        } else if (url.color === 'blue') {
+            thirdBlueDot.textContent = `${Number(thirdBlueDot.textContent) - 1}`;
+        }
+
         let temp = mainDeck[0][n];
         mainDeck[0][n] = mainDeck[0][0];
         mainDeck[0][0] = temp;
@@ -395,8 +419,15 @@ deck.addEventListener('click', () => {
     } else if (mainDeck[0].length === 1) {
         deck.style.visibility = `hidden`;
         url = mainDeck[0][0];
+
+        if (url.color === 'green') {
+            thirdGreenDot.textContent = `${Number(thirdGreenDot.textContent) - 1}`;
+        } else if (url.color === 'brown') {
+            thirdBrownDot.textContent = `${Number(thirdBrownDot.textContent) - 1}`;
+        } else if (url.color === 'blue') {
+            thirdBlueDot.textContent = `${Number(thirdBlueDot.textContent) - 1}`;
+        }
     }
 
     lastCard.style.background = `no-repeat center/cover url('${url.cardFace}')`;
-    console.log(mainDeck[2] === []);
 });
