@@ -198,146 +198,205 @@ if (azathoth.classList.contains('border') === true) {
 
 getNumberDots();
 
-// middle
+// main deck
+function getMainDeck () {
+    let firstBlueDeck = [];
+    let secondBlueDeck = [];
+    let thirdBlueDeck = [];
 
-let firstBlueDeck = [];
-let secondBlueDeck = [];
-let thirdBlueDeck = [];
+    function getBlueDecks () {
+        for (let i = 0; i < ancientsData[ancientN].firstStage.blueCards; i++) {
 
-function getBlueDecks () {
-    for (let i = 0; i < ancientsData[ancientN].firstStage.blueCards; i++) {
+            let n = getRandomNum (0, (blueCards.length - 1));
 
-        let n = getRandomNum (1, (blueCards.length - 1));
+            firstBlueDeck.push(blueCards[n]);
 
-        firstBlueDeck.push(blueCards[n]);
+            let temp = blueCards[n];
+            blueCards[n] = blueCards[0];
+            blueCards[0] = temp;
+            blueCards.shift();
+        }
 
-        let temp = blueCards[n];
-        blueCards[n] = blueCards[0];
-        blueCards[0] = temp;
-        blueCards.shift();
+        for (let j = 0; j < ancientsData[ancientN].secondStage.blueCards; j++) {
+
+            let n = getRandomNum (0, (blueCards.length - 1));
+
+            secondBlueDeck.push(blueCards[n]);
+
+            let temp = blueCards[n];
+            blueCards[n] = blueCards[0];
+            blueCards[0] = temp;
+            blueCards.shift();
+        }
+
+        for (let k = 0; k < ancientsData[ancientN].thirdStage.blueCards; k++) {
+            
+            let n = getRandomNum (0, (blueCards.length - 1));
+
+            thirdBlueDeck.push(blueCards[n]);
+
+            let temp = blueCards[n];
+            blueCards[n] = blueCards[0];
+            blueCards[0] = temp;
+            blueCards.shift();
+        }
     }
+    getBlueDecks ();
 
-    for (let j = 0; j < ancientsData[ancientN].secondStage.blueCards; j++) {
 
-        let n = getRandomNum (1, (blueCards.length - 1));
+    let firstBrownDeck = [];
+    let secondBrownDeck = [];
+    let thirdBrownDeck = [];
 
-        secondBlueDeck.push(blueCards[n]);
+    function getBrownDecks () {
+        for (let i = 0; i < ancientsData[ancientN].firstStage.brownCards; i++) {
 
-        let temp = blueCards[n];
-        blueCards[n] = blueCards[0];
-        blueCards[0] = temp;
-        blueCards.shift();
+            let n = getRandomNum (0, (brownCards.length - 1));
+
+            firstBrownDeck.push(brownCards[n]);
+
+            let temp = brownCards[n];
+            brownCards[n] = brownCards[0];
+            brownCards[0] = temp;
+            brownCards.shift();
+        }
+
+        for (let j = 0; j < ancientsData[ancientN].secondStage.brownCards; j++) {
+
+            let n = getRandomNum (0, (brownCards.length - 1));
+
+            secondBrownDeck.push(brownCards[n]);
+
+            let temp = brownCards[n];
+            brownCards[n] = brownCards[0];
+            brownCards[0] = temp;
+            brownCards.shift();
+        }
+
+        for (let k = 0; k < ancientsData[ancientN].thirdStage.brownCards; k++) {
+            
+            let n = getRandomNum (0, (brownCards.length - 1));
+
+            thirdBrownDeck.push(brownCards[n]);
+
+            let temp = brownCards[n];
+            brownCards[n] = brownCards[0];
+            brownCards[0] = temp;
+            brownCards.shift();
+        }
     }
+    getBrownDecks ();
 
-    for (let k = 0; k < ancientsData[ancientN].thirdStage.blueCards; k++) {
-        
-        let n = getRandomNum (1, (blueCards.length - 1));
 
-        thirdBlueDeck.push(blueCards[n]);
+    let firstGreenDeck = [];
+    let secondGreenDeck = [];
+    let thirdGreenDeck = [];
 
-        let temp = blueCards[n];
-        blueCards[n] = blueCards[0];
-        blueCards[0] = temp;
-        blueCards.shift();
+    function getGreenDecks () {
+        for (let i = 0; i < ancientsData[ancientN].firstStage.greenCards; i++) {
+
+            let n = getRandomNum (0, (greenCards.length - 1));
+
+            firstGreenDeck.push(greenCards[n]);
+
+            let temp = greenCards[n];
+            greenCards[n] = greenCards[0];
+            greenCards[0] = temp;
+            greenCards.shift();
+        }
+
+        for (let j = 0; j < ancientsData[ancientN].secondStage.greenCards; j++) {
+
+            let n = getRandomNum (0, (greenCards.length - 1));
+
+            secondGreenDeck.push(greenCards[n]);
+
+            let temp = greenCards[n];
+            greenCards[n] = greenCards[0];
+            greenCards[0] = temp;
+            greenCards.shift();
+        }
+
+        for (let k = 0; k < ancientsData[ancientN].thirdStage.greenCards; k++) {
+            
+            let n = getRandomNum (0, (greenCards.length - 1));
+
+            thirdGreenDeck.push(greenCards[n]);
+
+            let temp = greenCards[n];
+            greenCards[n] = greenCards[0];
+            greenCards[0] = temp;
+            greenCards.shift();
+        }
     }
+    getGreenDecks ();
+
+    // let firstDeck = [].concat(firstGreenDeck, firstBrownDeck, firstBlueDeck);
+    // let secondDeck = [].concat(secondGreenDeck, secondBrownDeck, secondBlueDeck);
+    // let thirdDeck = [].concat(thirdGreenDeck, thirdBrownDeck, thirdBlueDeck);
+
+    let firstDeck = [...firstGreenDeck, ...firstBrownDeck, ...firstBlueDeck];
+    let secondDeck = [...secondGreenDeck, ...secondBrownDeck, ...secondBlueDeck];
+    let thirdDeck = [...thirdGreenDeck, ...thirdBrownDeck, ...thirdBlueDeck];
+
+    let mainDeck = [thirdDeck, secondDeck, firstDeck];
+    return mainDeck;
 }
-getBlueDecks ();
 
+// end main deck
 
-let firstBrownDeck = [];
-let secondBrownDeck = [];
-let thirdBrownDeck = [];
+const  deck  = document.querySelector('.deck');
 
-function getBrownDecks () {
-    for (let i = 0; i < ancientsData[ancientN].firstStage.brownCards; i++) {
+shuffle.addEventListener('click', () => {
+    deck.style.visibility = `visible`;
 
-        let n = getRandomNum (1, (brownCards.length - 1));
+    // if (veryLowBtn.classList.contains('border') === true){               !!!!! Для уровней
+    //     blueCards = blueCardsVL;
+    //     brownCards = brownCardsVL;
+    //     greenCards = greenCardsVL;
+    // }
+    getMainDeck ();
 
-        firstBrownDeck.push(brownCards[n]);
+  });
 
-        let temp = brownCards[n];
-        brownCards[n] = brownCards[0];
-        brownCards[0] = temp;
-        brownCards.shift();
+let mainDeck = getMainDeck ();
+const lastCard = document.querySelector('.last-card');
+
+deck.addEventListener('click', () => {
+    let url = '';
+
+    if (mainDeck[2].length !== 0) {
+        let n = getRandomNum (0, (mainDeck[2].length - 1));
+        url = mainDeck[2][n];
+
+        let temp = mainDeck[2][n];
+        mainDeck[2][n] = mainDeck[2][0];
+        mainDeck[2][0] = temp;
+
+        mainDeck[2].shift();
+    } else if (mainDeck[1].length !== 0) {
+        let n = getRandomNum (0, (mainDeck[1].length - 1));
+        url = mainDeck[1][n];
+
+        let temp = mainDeck[1][n];
+        mainDeck[1][n] = mainDeck[1][0];
+        mainDeck[1][0] = temp;
+
+        mainDeck[1].shift();
+    } else if (mainDeck[0].length > 1) {
+        let n = getRandomNum (0, (mainDeck[0].length - 1));
+        url = mainDeck[0][n];
+
+        let temp = mainDeck[0][n];
+        mainDeck[0][n] = mainDeck[0][0];
+        mainDeck[0][0] = temp;
+
+        mainDeck[0].shift();
+    } else if (mainDeck[0].length === 1) {
+        deck.style.visibility = `hidden`;
+        url = mainDeck[0][0];
     }
 
-    for (let j = 0; j < ancientsData[ancientN].secondStage.brownCards; j++) {
-
-        let n = getRandomNum (1, (brownCards.length - 1));
-
-        secondBrownDeck.push(brownCards[n]);
-
-        let temp = brownCards[n];
-        brownCards[n] = brownCards[0];
-        brownCards[0] = temp;
-        brownCards.shift();
-    }
-
-    for (let k = 0; k < ancientsData[ancientN].thirdStage.brownCards; k++) {
-        
-        let n = getRandomNum (1, (brownCards.length - 1));
-
-        thirdBrownDeck.push(brownCards[n]);
-
-        let temp = brownCards[n];
-        brownCards[n] = brownCards[0];
-        brownCards[0] = temp;
-        brownCards.shift();
-    }
-}
-getBrownDecks ();
-
-
-let firstGreenDeck = [];
-let secondGreenDeck = [];
-let thirdGreenDeck = [];
-
-function getGreenDecks () {
-    for (let i = 0; i < ancientsData[ancientN].firstStage.greenCards; i++) {
-
-        let n = getRandomNum (1, (greenCards.length - 1));
-
-        firstGreenDeck.push(greenCards[n]);
-
-        let temp = greenCards[n];
-        greenCards[n] = greenCards[0];
-        greenCards[0] = temp;
-        greenCards.shift();
-    }
-
-    for (let j = 0; j < ancientsData[ancientN].secondStage.greenCards; j++) {
-
-        let n = getRandomNum (1, (greenCards.length - 1));
-
-        secondGreenDeck.push(greenCards[n]);
-
-        let temp = greenCards[n];
-        greenCards[n] = greenCards[0];
-        greenCards[0] = temp;
-        greenCards.shift();
-    }
-
-    for (let k = 0; k < ancientsData[ancientN].thirdStage.greenCards; k++) {
-        
-        let n = getRandomNum (1, (greenCards.length - 1));
-
-        thirdGreenDeck.push(greenCards[n]);
-
-        let temp = greenCards[n];
-        greenCards[n] = greenCards[0];
-        greenCards[0] = temp;
-        greenCards.shift();
-    }
-}
-getGreenDecks ();
-
-// let firstDeck = [].concat(firstGreenDeck, firstBrownDeck, firstBlueDeck);
-// let secondDeck = [].concat(secondGreenDeck, secondBrownDeck, secondBlueDeck);
-// let thirdDeck = [].concat(thirdGreenDeck, thirdBrownDeck, thirdBlueDeck);
-
-let firstDeck = [...firstGreenDeck, ...firstBrownDeck, ...firstBlueDeck];
-let secondDeck = [...secondGreenDeck, ...secondBrownDeck, ...secondBlueDeck];
-let thirdDeck = [...thirdGreenDeck, ...thirdBrownDeck, ...thirdBlueDeck];
-console.log (firstDeck);
-console.log (secondDeck);
-console.log (thirdDeck);
+    lastCard.style.background = `no-repeat center/cover url('${url.cardFace}')`;
+    console.log(mainDeck[2] === []);
+});
