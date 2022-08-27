@@ -14,39 +14,47 @@ const levels = document.querySelector('.levels');
 // Ancients cards
 azathoth.addEventListener('click', () => {
     azathoth.classList.add('border');
-    cthulthu.classList.remove('border');
-    logSothoth.classList.remove('border');
-    shubNiggurath.classList.remove('border');
+
+    cthulthu.style.display = `none`;
+    logSothoth.style.display = `none`;
+    shubNiggurath.style.display = `none`;
 
     levels.style.visibility = `visible`;
     getNumberDots();
   });
 
 cthulthu.addEventListener('click', () => {
-    azathoth.classList.remove('border');
+
     cthulthu.classList.add('border');
-    logSothoth.classList.remove('border');
-    shubNiggurath.classList.remove('border');
+
+    azathoth.style.display = `none`;
+    logSothoth.style.display = `none`;
+    shubNiggurath.style.display = `none`;
     
     levels.style.visibility = `visible`;
     getNumberDots();
 });
 
 logSothoth.addEventListener('click', () => {
-    azathoth.classList.remove('border');
-    cthulthu.classList.remove('border');
+
     logSothoth.classList.add('border');
-    shubNiggurath.classList.remove('border');
+
+
+    azathoth.style.display = `none`;
+    cthulthu.style.display = `none`;
+    shubNiggurath.style.display = `none`;
     
     levels.style.visibility = `visible`;
     getNumberDots();
 });
 
 shubNiggurath.addEventListener('click', () => {
-    azathoth.classList.remove('border');
-    cthulthu.classList.remove('border');
-    logSothoth.classList.remove('border');
+    
     shubNiggurath.classList.add('border');
+
+    azathoth.style.display = `none`;
+    cthulthu.style.display = `none`;
+    logSothoth.style.display = `none`;
     
     levels.style.visibility = `visible`;
     getNumberDots();
@@ -61,7 +69,7 @@ const veryHighBtn = document.querySelector('.very-high');
 
 const shuffle = document.querySelector('.shuffle');
 
-const deckPlace = document.querySelector('deck-container'); 
+const deckPlace = document.querySelector('.deck-container'); 
 
 veryLowBtn.addEventListener('click', () => {
     veryLowBtn.classList.add('border');
@@ -71,7 +79,9 @@ veryLowBtn.addEventListener('click', () => {
     veryHighBtn.classList.remove('border');
 
     shuffle.style.visibility = `visible`;
-    deckPlace.style.visibility = `hidden`;
+    deck.style.visibility = `hidden`;
+    dotsContainer.style.visibility = `hidden`;
+    lastCard.style.visibility = `hidden`;
   });
 
 lowBtn.addEventListener('click', () => {
@@ -82,7 +92,9 @@ lowBtn.addEventListener('click', () => {
     veryHighBtn.classList.remove('border');
 
     shuffle.style.visibility = `visible`;
-    deckPlace.style.visibility = `hidden`;
+    deck.style.visibility = `hidden`;
+    dotsContainer.style.visibility = `hidden`;
+    lastCard.style.visibility = `hidden`;
 });
 
 middleBtn.addEventListener('click', () => {
@@ -93,7 +105,9 @@ middleBtn.addEventListener('click', () => {
     veryHighBtn.classList.remove('border');
 
     shuffle.style.visibility = `visible`;
-    deckPlace.style.visibility = `hidden`;
+    deck.style.visibility = `hidden`;
+    dotsContainer.style.visibility = `hidden`;
+    lastCard.style.visibility = `hidden`;
 });
 
 highBtn.addEventListener('click', () => {
@@ -104,7 +118,9 @@ highBtn.addEventListener('click', () => {
     veryHighBtn.classList.remove('border');
 
     shuffle.style.visibility = `visible`;
-    deckPlace.style.visibility = `hidden`;
+    deck.style.visibility = `hidden`;
+    dotsContainer.style.visibility = `hidden`;
+    lastCard.style.visibility = `hidden`;
 });
 
 veryHighBtn.addEventListener('click', () => {
@@ -115,7 +131,9 @@ veryHighBtn.addEventListener('click', () => {
     veryHighBtn.classList.add('border');
 
     shuffle.style.visibility = `visible`;
-    deckPlace.style.visibility = `hidden`;
+    deck.style.visibility = `hidden`;
+    dotsContainer.style.visibility = `hidden`;
+    lastCard.style.visibility = `hidden`;
 });
 
 
@@ -125,16 +143,6 @@ function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//**********
-// const lastCard = document.querySelector('.last-card');
-// lastCard.style.background = `no-repeat center/cover url('${blueCards[0].cardFace}')`;
-  
-
-//   console.log(azathoth.classList.contains('border'));
-//   console.log(ancientsData[0].firstStage.greenCards);
-//   console.log(blueCards[0].cardFace);
-
-//**************
 const  firstGreenDot  = document.querySelector('.first-green');
 const  firstBrownDot  = document.querySelector('.first-brown');
 const  firstBlueDot  = document.querySelector('.first-blue');
@@ -145,61 +153,72 @@ const  thirdGreenDot  = document.querySelector('.third-green');
 const  thirdBrownDot  = document.querySelector('.third-brown');
 const  thirdBlueDot  = document.querySelector('.third-blue');
 
-let ancientN = 0;
-
 function getNumberDots () {
 
-if (azathoth.classList.contains('border') === true) {
-    firstGreenDot.textContent = `${ancientsData[0].firstStage.greenCards}`;
-    firstBrownDot.textContent = `${ancientsData[0].firstStage.brownCards}`;
-    firstBlueDot.textContent = `${ancientsData[0].firstStage.blueCards}`;
-    secondGreenDot.textContent = `${ancientsData[0].secondStage.greenCards}`;
-    secondBrownDot.textContent = `${ancientsData[0].secondStage.brownCards}`;
-    secondBlueDot.textContent = `${ancientsData[0].secondStage.blueCards}`;
-    thirdGreenDot.textContent = `${ancientsData[0].thirdStage.greenCards}`;
-    thirdBrownDot.textContent = `${ancientsData[0].thirdStage.brownCards}`;
-    thirdBlueDot.textContent = `${ancientsData[0].thirdStage.blueCards}`;
-    ancientN = 0;
-} else if (cthulthu.classList.contains('border') === true) {
-    firstGreenDot.textContent = `${ancientsData[1].firstStage.greenCards}`;
-    firstBrownDot.textContent = `${ancientsData[1].firstStage.brownCards}`;
-    firstBlueDot.textContent = `${ancientsData[1].firstStage.blueCards}`;
-    secondGreenDot.textContent = `${ancientsData[1].secondStage.greenCards}`;
-    secondBrownDot.textContent = `${ancientsData[1].secondStage.brownCards}`;
-    secondBlueDot.textContent = `${ancientsData[1].secondStage.blueCards}`;
-    thirdGreenDot.textContent = `${ancientsData[1].thirdStage.greenCards}`;
-    thirdBrownDot.textContent = `${ancientsData[1].thirdStage.brownCards}`;
-    thirdBlueDot.textContent = `${ancientsData[1].thirdStage.blueCards}`;
-    ancientN = 1;
-} else if (logSothoth.classList.contains('border') === true) {
-    firstGreenDot.textContent = `${ancientsData[2].firstStage.greenCards}`;
-    firstBrownDot.textContent = `${ancientsData[2].firstStage.brownCards}`;
-    firstBlueDot.textContent = `${ancientsData[2].firstStage.blueCards}`;
-    secondGreenDot.textContent = `${ancientsData[2].secondStage.greenCards}`;
-    secondBrownDot.textContent = `${ancientsData[2].secondStage.brownCards}`;
-    secondBlueDot.textContent = `${ancientsData[2].secondStage.blueCards}`;
-    thirdGreenDot.textContent = `${ancientsData[2].thirdStage.greenCards}`;
-    thirdBrownDot.textContent = `${ancientsData[2].thirdStage.brownCards}`;
-    thirdBlueDot.textContent = `${ancientsData[2].thirdStage.blueCards}`;
-    ancientN = 2;
-} else if (shubNiggurath.classList.contains('border') === true) {
-    firstGreenDot.textContent = `${ancientsData[3].firstStage.greenCards}`;
-    firstBrownDot.textContent = `${ancientsData[3].firstStage.brownCards}`;
-    firstBlueDot.textContent = `${ancientsData[3].firstStage.blueCards}`;
-    secondGreenDot.textContent = `${ancientsData[3].secondStage.greenCards}`;
-    secondBrownDot.textContent = `${ancientsData[3].secondStage.brownCards}`;
-    secondBlueDot.textContent = `${ancientsData[3].secondStage.blueCards}`;
-    thirdGreenDot.textContent = `${ancientsData[3].thirdStage.greenCards}`;
-    thirdBrownDot.textContent = `${ancientsData[3].thirdStage.brownCards}`;
-    thirdBlueDot.textContent = `${ancientsData[3].thirdStage.blueCards}`;
-    ancientN = 3;
-}
+    if (azathoth.classList.contains('border') === true) {
+        firstGreenDot.textContent = `${ancientsData[0].firstStage.greenCards}`;
+        firstBrownDot.textContent = `${ancientsData[0].firstStage.brownCards}`;
+        firstBlueDot.textContent = `${ancientsData[0].firstStage.blueCards}`;
+        secondGreenDot.textContent = `${ancientsData[0].secondStage.greenCards}`;
+        secondBrownDot.textContent = `${ancientsData[0].secondStage.brownCards}`;
+        secondBlueDot.textContent = `${ancientsData[0].secondStage.blueCards}`;
+        thirdGreenDot.textContent = `${ancientsData[0].thirdStage.greenCards}`;
+        thirdBrownDot.textContent = `${ancientsData[0].thirdStage.brownCards}`;
+        thirdBlueDot.textContent = `${ancientsData[0].thirdStage.blueCards}`;
+    } else if (cthulthu.classList.contains('border') === true) {
+        firstGreenDot.textContent = `${ancientsData[1].firstStage.greenCards}`;
+        firstBrownDot.textContent = `${ancientsData[1].firstStage.brownCards}`;
+        firstBlueDot.textContent = `${ancientsData[1].firstStage.blueCards}`;
+        secondGreenDot.textContent = `${ancientsData[1].secondStage.greenCards}`;
+        secondBrownDot.textContent = `${ancientsData[1].secondStage.brownCards}`;
+        secondBlueDot.textContent = `${ancientsData[1].secondStage.blueCards}`;
+        thirdGreenDot.textContent = `${ancientsData[1].thirdStage.greenCards}`;
+        thirdBrownDot.textContent = `${ancientsData[1].thirdStage.brownCards}`;
+        thirdBlueDot.textContent = `${ancientsData[1].thirdStage.blueCards}`;
+    } else if (logSothoth.classList.contains('border') === true) {
+        firstGreenDot.textContent = `${ancientsData[2].firstStage.greenCards}`;
+        firstBrownDot.textContent = `${ancientsData[2].firstStage.brownCards}`;
+        firstBlueDot.textContent = `${ancientsData[2].firstStage.blueCards}`;
+        secondGreenDot.textContent = `${ancientsData[2].secondStage.greenCards}`;
+        secondBrownDot.textContent = `${ancientsData[2].secondStage.brownCards}`;
+        secondBlueDot.textContent = `${ancientsData[2].secondStage.blueCards}`;
+        thirdGreenDot.textContent = `${ancientsData[2].thirdStage.greenCards}`;
+        thirdBrownDot.textContent = `${ancientsData[2].thirdStage.brownCards}`;
+        thirdBlueDot.textContent = `${ancientsData[2].thirdStage.blueCards}`;
+    } else if (shubNiggurath.classList.contains('border') === true) {
+        firstGreenDot.textContent = `${ancientsData[3].firstStage.greenCards}`;
+        firstBrownDot.textContent = `${ancientsData[3].firstStage.brownCards}`;
+        firstBlueDot.textContent = `${ancientsData[3].firstStage.blueCards}`;
+        secondGreenDot.textContent = `${ancientsData[3].secondStage.greenCards}`;
+        secondBrownDot.textContent = `${ancientsData[3].secondStage.brownCards}`;
+        secondBlueDot.textContent = `${ancientsData[3].secondStage.blueCards}`;
+        thirdGreenDot.textContent = `${ancientsData[3].thirdStage.greenCards}`;
+        thirdBrownDot.textContent = `${ancientsData[3].thirdStage.brownCards}`;
+        thirdBlueDot.textContent = `${ancientsData[3].thirdStage.blueCards}`;
+    }
+
 }
 
 getNumberDots();
 
 // main deck
 function getMainDeck () {
+
+    let newBlueCards = [].concat(blueCards);
+    let newBrownCards = [].concat(brownCards);
+    let newGreenCards = [].concat(greenCards);
+    
+    let ancientN = 0;
+    if (azathoth.classList.contains('border') === true) {
+        ancientN = 0;
+    } else if (cthulthu.classList.contains('border') === true) {
+        ancientN = 1;
+    } else if (logSothoth.classList.contains('border') === true) {
+        ancientN = 2;
+    } else if (shubNiggurath.classList.contains('border') === true) {
+        ancientN = 3;
+    }
+    console.log(ancientN);
     let firstBlueDeck = [];
     let secondBlueDeck = [];
     let thirdBlueDeck = [];
@@ -207,38 +226,38 @@ function getMainDeck () {
     function getBlueDecks () {
         for (let i = 0; i < ancientsData[ancientN].firstStage.blueCards; i++) {
 
-            let n = getRandomNum (0, (blueCards.length - 1));
+            let n = getRandomNum (0, (newBlueCards.length - 1));
 
-            firstBlueDeck.push(blueCards[n]);
+            firstBlueDeck.push(newBlueCards[n]);
 
-            let temp = blueCards[n];
-            blueCards[n] = blueCards[0];
-            blueCards[0] = temp;
-            blueCards.shift();
+            let temp = newBlueCards[n];
+            newBlueCards[n] = newBlueCards[0];
+            newBlueCards[0] = temp;
+            newBlueCards.shift();
         }
 
         for (let j = 0; j < ancientsData[ancientN].secondStage.blueCards; j++) {
 
-            let n = getRandomNum (0, (blueCards.length - 1));
+            let n = getRandomNum (0, (newBlueCards.length - 1));
 
-            secondBlueDeck.push(blueCards[n]);
+            secondBlueDeck.push(newBlueCards[n]);
 
-            let temp = blueCards[n];
-            blueCards[n] = blueCards[0];
-            blueCards[0] = temp;
-            blueCards.shift();
+            let temp = newBlueCards[n];
+            newBlueCards[n] = newBlueCards[0];
+            newBlueCards[0] = temp;
+            newBlueCards.shift();
         }
 
         for (let k = 0; k < ancientsData[ancientN].thirdStage.blueCards; k++) {
             
-            let n = getRandomNum (0, (blueCards.length - 1));
+            let n = getRandomNum (0, (newBlueCards.length - 1));
 
-            thirdBlueDeck.push(blueCards[n]);
+            thirdBlueDeck.push(newBlueCards[n]);
 
-            let temp = blueCards[n];
-            blueCards[n] = blueCards[0];
-            blueCards[0] = temp;
-            blueCards.shift();
+            let temp = newBlueCards[n];
+            newBlueCards[n] = newBlueCards[0];
+            newBlueCards[0] = temp;
+            newBlueCards.shift();
         }
     }
     getBlueDecks ();
@@ -251,38 +270,38 @@ function getMainDeck () {
     function getBrownDecks () {
         for (let i = 0; i < ancientsData[ancientN].firstStage.brownCards; i++) {
 
-            let n = getRandomNum (0, (brownCards.length - 1));
+            let n = getRandomNum (0, (newBrownCards.length - 1));
 
-            firstBrownDeck.push(brownCards[n]);
+            firstBrownDeck.push(newBrownCards[n]);
 
-            let temp = brownCards[n];
-            brownCards[n] = brownCards[0];
-            brownCards[0] = temp;
-            brownCards.shift();
+            let temp = newBrownCards[n];
+            newBrownCards[n] = newBrownCards[0];
+            newBrownCards[0] = temp;
+            newBrownCards.shift();
         }
 
         for (let j = 0; j < ancientsData[ancientN].secondStage.brownCards; j++) {
 
-            let n = getRandomNum (0, (brownCards.length - 1));
+            let n = getRandomNum (0, (newBrownCards.length - 1));
 
-            secondBrownDeck.push(brownCards[n]);
+            secondBrownDeck.push(newBrownCards[n]);
 
-            let temp = brownCards[n];
-            brownCards[n] = brownCards[0];
-            brownCards[0] = temp;
-            brownCards.shift();
+            let temp = newBrownCards[n];
+            newBrownCards[n] = newBrownCards[0];
+            newBrownCards[0] = temp;
+            newBrownCards.shift();
         }
 
         for (let k = 0; k < ancientsData[ancientN].thirdStage.brownCards; k++) {
             
-            let n = getRandomNum (0, (brownCards.length - 1));
+            let n = getRandomNum (0, (newBrownCards.length - 1));
 
-            thirdBrownDeck.push(brownCards[n]);
+            thirdBrownDeck.push(newBrownCards[n]);
 
-            let temp = brownCards[n];
-            brownCards[n] = brownCards[0];
-            brownCards[0] = temp;
-            brownCards.shift();
+            let temp = newBrownCards[n];
+            newBrownCards[n] = newBrownCards[0];
+            newBrownCards[0] = temp;
+            newBrownCards.shift();
         }
     }
     getBrownDecks ();
@@ -295,45 +314,41 @@ function getMainDeck () {
     function getGreenDecks () {
         for (let i = 0; i < ancientsData[ancientN].firstStage.greenCards; i++) {
 
-            let n = getRandomNum (0, (greenCards.length - 1));
+            let n = getRandomNum (0, (newGreenCards.length - 1));
 
-            firstGreenDeck.push(greenCards[n]);
+            firstGreenDeck.push(newGreenCards[n]);
 
-            let temp = greenCards[n];
-            greenCards[n] = greenCards[0];
-            greenCards[0] = temp;
-            greenCards.shift();
+            let temp = newGreenCards[n];
+            newGreenCards[n] = newGreenCards[0];
+            newGreenCards[0] = temp;
+            newGreenCards.shift();
         }
 
         for (let j = 0; j < ancientsData[ancientN].secondStage.greenCards; j++) {
 
-            let n = getRandomNum (0, (greenCards.length - 1));
+            let n = getRandomNum (0, (newGreenCards.length - 1));
 
-            secondGreenDeck.push(greenCards[n]);
+            secondGreenDeck.push(newGreenCards[n]);
 
-            let temp = greenCards[n];
-            greenCards[n] = greenCards[0];
-            greenCards[0] = temp;
-            greenCards.shift();
+            let temp = newGreenCards[n];
+            newGreenCards[n] = newGreenCards[0];
+            newGreenCards[0] = temp;
+            newGreenCards.shift();
         }
 
         for (let k = 0; k < ancientsData[ancientN].thirdStage.greenCards; k++) {
             
-            let n = getRandomNum (0, (greenCards.length - 1));
+            let n = getRandomNum (0, (newGreenCards.length - 1));
 
-            thirdGreenDeck.push(greenCards[n]);
+            thirdGreenDeck.push(newGreenCards[n]);
 
-            let temp = greenCards[n];
-            greenCards[n] = greenCards[0];
-            greenCards[0] = temp;
-            greenCards.shift();
+            let temp = newGreenCards[n];
+            newGreenCards[n] = newGreenCards[0];
+            newGreenCards[0] = temp;
+            newGreenCards.shift();
         }
     }
     getGreenDecks ();
-
-    // let firstDeck = [].concat(firstGreenDeck, firstBrownDeck, firstBlueDeck);
-    // let secondDeck = [].concat(secondGreenDeck, secondBrownDeck, secondBlueDeck);
-    // let thirdDeck = [].concat(thirdGreenDeck, thirdBrownDeck, thirdBlueDeck);
 
     let firstDeck = [...firstGreenDeck, ...firstBrownDeck, ...firstBlueDeck];
     let secondDeck = [...secondGreenDeck, ...secondBrownDeck, ...secondBlueDeck];
@@ -341,93 +356,118 @@ function getMainDeck () {
 
     let mainDeck = [thirdDeck, secondDeck, firstDeck];
     return mainDeck;
+    
 }
 
 // end main deck
 
+
+const lastCard = document.querySelector('.last-card');
 const  deck  = document.querySelector('.deck');
+const  dotsContainer  = document.querySelector('.current-state');
 
 shuffle.addEventListener('click', () => {
+    getNumberDots ();
+
     deck.style.visibility = `visible`;
+    dotsContainer.style.visibility = `visible`;
+    lastCard.style.visibility = `hidden`;
+ 
 
     // if (veryLowBtn.classList.contains('border') === true){               !!!!! Для уровней
     //     blueCards = blueCardsVL;
     //     brownCards = brownCardsVL;
     //     greenCards = greenCardsVL;
     // }
-    getMainDeck ();
+    
+    let mainDeck = getMainDeck ();
+    console.log (mainDeck);
 
+    deck.addEventListener('click', () => {
+
+        lastCard.style.visibility = `visible`;
+    
+        
+        function getUrl () {
+    
+            let url = '';
+        
+            if (mainDeck[2].length !== 0) {
+                let n = getRandomNum (0, (mainDeck[2].length - 1));
+                url = mainDeck[2][n];
+        
+                if (url.color === 'green') {
+                    firstGreenDot.textContent = `${Number(firstGreenDot.textContent) - 1}`;
+                } else if (url.color === 'brown') {
+                    firstBrownDot.textContent = `${Number(firstBrownDot.textContent) - 1}`;
+                } else if (url.color === 'blue') {
+                    firstBlueDot.textContent = `${Number(firstBlueDot.textContent) - 1}`;
+                }
+        
+                let temp = mainDeck[2][n];
+                mainDeck[2][n] = mainDeck[2][0];
+                mainDeck[2][0] = temp;
+        
+                mainDeck[2].shift();
+            } else if (mainDeck[1].length !== 0) {
+                let n = getRandomNum (0, (mainDeck[1].length - 1));
+                url = mainDeck[1][n];
+        
+                if (url.color === 'green') {
+                    secondGreenDot.textContent = `${Number(secondGreenDot.textContent) - 1}`;
+                } else if (url.color === 'brown') {
+                    secondBrownDot.textContent = `${Number(secondBrownDot.textContent) - 1}`;
+                } else if (url.color === 'blue') {
+                    secondBlueDot.textContent = `${Number(secondBlueDot.textContent) - 1}`;
+                }
+        
+                let temp = mainDeck[1][n];
+                mainDeck[1][n] = mainDeck[1][0];
+                mainDeck[1][0] = temp;
+        
+                mainDeck[1].shift();
+            } else if (mainDeck[0].length > 1) {
+                let n = getRandomNum (0, (mainDeck[0].length - 1));
+                url = mainDeck[0][n];
+        
+                if (url.color === 'green') {
+                    thirdGreenDot.textContent = `${Number(thirdGreenDot.textContent) - 1}`;
+                } else if (url.color === 'brown') {
+                    thirdBrownDot.textContent = `${Number(thirdBrownDot.textContent) - 1}`;
+                } else if (url.color === 'blue') {
+                    thirdBlueDot.textContent = `${Number(thirdBlueDot.textContent) - 1}`;
+                }
+        
+                let temp = mainDeck[0][n];
+                mainDeck[0][n] = mainDeck[0][0];
+                mainDeck[0][0] = temp;
+        
+                mainDeck[0].shift();
+            } else if (mainDeck[0].length === 1) {
+                deck.style.visibility = `hidden`;
+                url = mainDeck[0][0];
+        
+                if (url.color === 'green') {
+                    thirdGreenDot.textContent = `${Number(thirdGreenDot.textContent) - 1}`;
+                } else if (url.color === 'brown') {
+                    thirdBrownDot.textContent = `${Number(thirdBrownDot.textContent) - 1}`;
+                } else if (url.color === 'blue') {
+                    thirdBlueDot.textContent = `${Number(thirdBlueDot.textContent) - 1}`;
+                }
+            }
+        
+            lastCard.style.background = `no-repeat center/cover url('${url.cardFace}')`;
+        }
+        getUrl ();
+    });
   });
 
-let mainDeck = getMainDeck ();
-const lastCard = document.querySelector('.last-card');
 
-deck.addEventListener('click', () => {
-    let url = '';
 
-    if (mainDeck[2].length !== 0) {
-        let n = getRandomNum (0, (mainDeck[2].length - 1));
-        url = mainDeck[2][n];
 
-        if (url.color === 'green') {
-            firstGreenDot.textContent = `${Number(firstGreenDot.textContent) - 1}`;
-        } else if (url.color === 'brown') {
-            firstBrownDot.textContent = `${Number(firstBrownDot.textContent) - 1}`;
-        } else if (url.color === 'blue') {
-            firstBlueDot.textContent = `${Number(firstBlueDot.textContent) - 1}`;
-        }
 
-        let temp = mainDeck[2][n];
-        mainDeck[2][n] = mainDeck[2][0];
-        mainDeck[2][0] = temp;
 
-        mainDeck[2].shift();
-    } else if (mainDeck[1].length !== 0) {
-        let n = getRandomNum (0, (mainDeck[1].length - 1));
-        url = mainDeck[1][n];
 
-        if (url.color === 'green') {
-            secondGreenDot.textContent = `${Number(secondGreenDot.textContent) - 1}`;
-        } else if (url.color === 'brown') {
-            secondBrownDot.textContent = `${Number(secondBrownDot.textContent) - 1}`;
-        } else if (url.color === 'blue') {
-            secondBlueDot.textContent = `${Number(secondBlueDot.textContent) - 1}`;
-        }
 
-        let temp = mainDeck[1][n];
-        mainDeck[1][n] = mainDeck[1][0];
-        mainDeck[1][0] = temp;
 
-        mainDeck[1].shift();
-    } else if (mainDeck[0].length > 1) {
-        let n = getRandomNum (0, (mainDeck[0].length - 1));
-        url = mainDeck[0][n];
 
-        if (url.color === 'green') {
-            thirdGreenDot.textContent = `${Number(thirdGreenDot.textContent) - 1}`;
-        } else if (url.color === 'brown') {
-            thirdBrownDot.textContent = `${Number(thirdBrownDot.textContent) - 1}`;
-        } else if (url.color === 'blue') {
-            thirdBlueDot.textContent = `${Number(thirdBlueDot.textContent) - 1}`;
-        }
-
-        let temp = mainDeck[0][n];
-        mainDeck[0][n] = mainDeck[0][0];
-        mainDeck[0][0] = temp;
-
-        mainDeck[0].shift();
-    } else if (mainDeck[0].length === 1) {
-        deck.style.visibility = `hidden`;
-        url = mainDeck[0][0];
-
-        if (url.color === 'green') {
-            thirdGreenDot.textContent = `${Number(thirdGreenDot.textContent) - 1}`;
-        } else if (url.color === 'brown') {
-            thirdBrownDot.textContent = `${Number(thirdBrownDot.textContent) - 1}`;
-        } else if (url.color === 'blue') {
-            thirdBlueDot.textContent = `${Number(thirdBlueDot.textContent) - 1}`;
-        }
-    }
-
-    lastCard.style.background = `no-repeat center/cover url('${url.cardFace}')`;
-});
