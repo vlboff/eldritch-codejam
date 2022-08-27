@@ -3,6 +3,10 @@ import ancientsData from '../data/ancients.js';
 import blueCards from '../data/mythicCards/blue/index.js';
 import brownCards from '../data/mythicCards/brown/index.js';
 import greenCards from '../data/mythicCards/green/index.js';
+import blueLowCards from '../data/mythicCards/blue/blue_low.js';
+import brownLowCards from '../data/mythicCards/brown/brown_low.js';
+import greenLowCards from '../data/mythicCards/green/green_low.js';
+
 
 const azathoth = document.querySelector('.azathoth');
 const cthulthu = document.querySelector('.cthulthu');
@@ -218,10 +222,19 @@ getNumberDots();
 
 // main deck
 function getMainDeck () {
+    let newBlueCards = [];
+    let newBrownCards = [];
+    let newGreenCards = [];
 
-    let newBlueCards = [].concat(blueCards);
-    let newBrownCards = [].concat(brownCards);
-    let newGreenCards = [].concat(greenCards);
+    if (middleBtn.classList.contains('border') === true) {
+    newBlueCards = [].concat(blueCards);
+    newBrownCards = [].concat(brownCards);
+    newGreenCards = [].concat(greenCards);
+    } else if (lowBtn.classList.contains('border') === true) {
+    newBlueCards = [].concat(blueLowCards);
+    newBrownCards = [].concat(brownLowCards);
+    newGreenCards = [].concat(greenLowCards);
+    }
     
     let ancientN = 0;
     if (azathoth.classList.contains('border') === true) {
