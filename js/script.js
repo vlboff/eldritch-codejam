@@ -15,9 +15,13 @@ const levels = document.querySelector('.levels');
 azathoth.addEventListener('click', () => {
     azathoth.classList.add('border');
 
-    cthulthu.style.display = `none`;
-    logSothoth.style.display = `none`;
-    shubNiggurath.style.display = `none`;
+    azathoth.style.transform = `scale(1.15)`;
+    cthulthu.style.width = `0`;
+    cthulthu.style.margin = `0`;
+    logSothoth.style.width = `0`;
+    logSothoth.style.margin = `0`;
+    shubNiggurath.style.width = `0`;
+    shubNiggurath.style.margin = `0`;
 
     levels.style.visibility = `visible`;
     getNumberDots();
@@ -26,10 +30,14 @@ azathoth.addEventListener('click', () => {
 cthulthu.addEventListener('click', () => {
 
     cthulthu.classList.add('border');
-
-    azathoth.style.display = `none`;
-    logSothoth.style.display = `none`;
-    shubNiggurath.style.display = `none`;
+    
+    cthulthu.style.transform = `scale(1.15)`;
+    azathoth.style.width = `0`;
+    azathoth.style.margin = `0`;
+    logSothoth.style.width = `0`;
+    logSothoth.style.margin = `0`;
+    shubNiggurath.style.width = `0`;
+    shubNiggurath.style.margin = `0`;
     
     levels.style.visibility = `visible`;
     getNumberDots();
@@ -39,10 +47,13 @@ logSothoth.addEventListener('click', () => {
 
     logSothoth.classList.add('border');
 
-
-    azathoth.style.display = `none`;
-    cthulthu.style.display = `none`;
-    shubNiggurath.style.display = `none`;
+    logSothoth.style.transform = `scale(1.15)`;
+    azathoth.style.width = `0`;
+    azathoth.style.margin = `0`;
+    cthulthu.style.width = `0`;
+    cthulthu.style.margin = `0`;
+    shubNiggurath.style.width = `0`;
+    shubNiggurath.style.margin = `0`;
     
     levels.style.visibility = `visible`;
     getNumberDots();
@@ -52,9 +63,13 @@ shubNiggurath.addEventListener('click', () => {
     
     shubNiggurath.classList.add('border');
 
-    azathoth.style.display = `none`;
-    cthulthu.style.display = `none`;
-    logSothoth.style.display = `none`;
+    shubNiggurath.style.transform = `scale(1.15)`;
+    azathoth.style.width = `0`;
+    azathoth.style.margin = `0`;
+    cthulthu.style.width = `0`;
+    cthulthu.style.margin = `0`;
+    logSothoth.style.width = `0`;
+    logSothoth.style.margin = `0`;
     
     levels.style.visibility = `visible`;
     getNumberDots();
