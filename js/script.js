@@ -6,6 +6,9 @@ import greenCards from '../data/mythicCards/green/index.js';
 import blueLowCards from '../data/mythicCards/blue/blue_low.js';
 import brownLowCards from '../data/mythicCards/brown/brown_low.js';
 import greenLowCards from '../data/mythicCards/green/green_low.js';
+import blueHighCards from '../data/mythicCards/blue/blue_high.js';
+import brownHighCards from '../data/mythicCards/brown/brown_high.js';
+import greenHighCards from '../data/mythicCards/green/green_high.js';
 
 
 const azathoth = document.querySelector('.azathoth');
@@ -222,9 +225,52 @@ getNumberDots();
 
 // main deck
 function getMainDeck () {
+    
     let newBlueCards = [];
     let newBrownCards = [];
     let newGreenCards = [];
+
+    function getVeryLowBlueDeck () {
+        let veryLowBlueDeck = [];
+
+            for (let l = 0; l < (blueLowCards.length - 1); l++) {
+            
+                if (blueLowCards[l].difficulty === 'easy' && veryLowBlueDeck.length < 3) {
+                    veryLowBlueDeck.push(blueLowCards[l]);
+                } else if (blueLowCards[l].difficulty === 'normal' && veryLowBlueDeck.length < 3) {
+                    veryLowBlueDeck.push(blueLowCards[l]);
+                }
+            }
+        return veryLowBlueDeck;
+    }
+
+    function getVeryLowBrownDeck () {
+        let veryLowBrownDeck = [];
+        
+        for (let l = 0; l < (brownLowCards.length - 1); l++) {
+            if (brownLowCards[l].difficulty === 'easy' && veryLowBrownDeck.length < 10) {
+                veryLowBrownDeck.push(brownLowCards[l]);
+            } else if (brownLowCards[l].difficulty === 'normal' && veryLowBrownDeck.length < 10) {
+                veryLowBrownDeck.push(brownLowCards[l]);
+            }
+        }
+        return veryLowBrownDeck;
+    }
+
+    function getVeryLowGreennDeck () {
+        let veryLowGreenDeck = [];
+        
+        for (let l = 0; l < (greenLowCards.length - 1); l++) {
+            if (greenLowCards[l].difficulty === 'easy' && veryLowGreenDeck.length < 7) {
+                veryLowGreenDeck.push(greenLowCards[l]);
+            } else if (greenLowCards[l].difficulty === 'normal' && veryLowGreenDeck.length < 7) {
+                veryLowGreenDeck.push(greenLowCards[l]);
+            }
+            
+        }
+        return veryLowGreenDeck;
+    }
+
 
     if (middleBtn.classList.contains('border') === true) {
     newBlueCards = [].concat(blueCards);
@@ -234,8 +280,16 @@ function getMainDeck () {
     newBlueCards = [].concat(blueLowCards);
     newBrownCards = [].concat(brownLowCards);
     newGreenCards = [].concat(greenLowCards);
+    } else if (highBtn.classList.contains('border') === true) {
+    newBlueCards = [].concat(blueHighCards);
+    newBrownCards = [].concat(brownHighCards);
+    newGreenCards = [].concat(greenHighCards);
+    } else if (veryLowBtn.classList.contains('border') === true) {
+    newBlueCards = [].concat(getVeryLowBlueDeck ());
+    newBrownCards = [].concat(getVeryLowBrownDeck ());
+    newGreenCards = [].concat(getVeryLowGreennDeck ());
     }
-    
+
     let ancientN = 0;
     if (azathoth.classList.contains('border') === true) {
         ancientN = 0;
