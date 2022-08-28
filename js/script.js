@@ -100,6 +100,13 @@ veryLowBtn.addEventListener('click', () => {
     highBtn.classList.remove('border');
     veryHighBtn.classList.remove('border');
 
+    veryLowBtn.style.transform = `scale(1.15)`;
+    lowBtn.style.display = `none`;
+    middleBtn.style.display = `none`;
+    highBtn.style.display = `none`;
+    veryHighBtn.style.display = `none`;
+  
+
     shuffle.style.visibility = `visible`;
     deck.style.visibility = `hidden`;
     dotsContainer.style.visibility = `hidden`;
@@ -112,6 +119,12 @@ lowBtn.addEventListener('click', () => {
     middleBtn.classList.remove('border');
     highBtn.classList.remove('border');
     veryHighBtn.classList.remove('border');
+
+    lowBtn.style.transform = `scale(1.15)`;
+    veryLowBtn.style.display = `none`;
+    middleBtn.style.display = `none`;
+    highBtn.style.display = `none`;
+    veryHighBtn.style.display = `none`;
 
     shuffle.style.visibility = `visible`;
     deck.style.visibility = `hidden`;
@@ -126,6 +139,12 @@ middleBtn.addEventListener('click', () => {
     highBtn.classList.remove('border');
     veryHighBtn.classList.remove('border');
 
+    middleBtn.style.transform = `scale(1.15)`;
+    lowBtn.style.display = `none`;
+    veryLowBtn.style.display = `none`;
+    highBtn.style.display = `none`;
+    veryHighBtn.style.display = `none`;
+
     shuffle.style.visibility = `visible`;
     deck.style.visibility = `hidden`;
     dotsContainer.style.visibility = `hidden`;
@@ -139,6 +158,12 @@ highBtn.addEventListener('click', () => {
     highBtn.classList.add('border');
     veryHighBtn.classList.remove('border');
 
+    highBtn.style.transform = `scale(1.15)`;
+    lowBtn.style.display = `none`;
+    middleBtn.style.display = `none`;
+    veryLowBtn.style.display = `none`;
+    veryHighBtn.style.display = `none`;
+
     shuffle.style.visibility = `visible`;
     deck.style.visibility = `hidden`;
     dotsContainer.style.visibility = `hidden`;
@@ -151,6 +176,12 @@ veryHighBtn.addEventListener('click', () => {
     middleBtn.classList.remove('border');
     highBtn.classList.remove('border');
     veryHighBtn.classList.add('border');
+
+    veryHighBtn.style.transform = `scale(1.15)`;
+    lowBtn.style.display = `none`;
+    middleBtn.style.display = `none`;
+    highBtn.style.display = `none`;
+    veryLowBtn.style.display = `none`;
 
     shuffle.style.visibility = `visible`;
     deck.style.visibility = `hidden`;
@@ -271,6 +302,47 @@ function getMainDeck () {
         return veryLowGreenDeck;
     }
 
+    function getVeryHighBlueDeck () {
+        let veryHighBlueDeck = [];
+
+            for (let l = 0; l < (blueHighCards.length - 1); l++) {
+            
+                if (blueHighCards[l].difficulty === 'hard' && veryHighBlueDeck.length < 3) {
+                    veryHighBlueDeck.push(blueHighCards[l]);
+                } else if (blueHighCards[l].difficulty === 'normal' && veryHighBlueDeck.length < 3) {
+                    veryHighBlueDeck.push(blueHighCards[l]);
+                }
+            }
+        return veryHighBlueDeck;
+    }
+
+    function getVeryHighBrownDeck () {
+        let veryHighBrownDeck = [];
+        
+        for (let l = 0; l < (brownHighCards.length - 1); l++) {
+            if (brownHighCards[l].difficulty === 'hard' && veryHighBrownDeck.length < 10) {
+                veryHighBrownDeck.push(brownHighCards[l]);
+            } else if (brownHighCards[l].difficulty === 'normal' && veryHighBrownDeck.length < 10) {
+                veryHighBrownDeck.push(brownHighCards[l]);
+            }
+        }
+        return veryHighBrownDeck;
+    }
+
+    function getVeryHighGreennDeck () {
+        let veryHighGreenDeck = [];
+        
+        for (let l = 0; l < (greenHighCards.length - 1); l++) {
+            if (greenHighCards[l].difficulty === 'hard' && veryHighGreenDeck.length < 7) {
+                veryHighGreenDeck.push(greenHighCards[l]);
+            } else if (greenHighCards[l].difficulty === 'normal' && veryHighGreenDeck.length < 7) {
+                veryHighGreenDeck.push(greenHighCards[l]);
+            }
+            
+        }
+        return veryHighGreenDeck;
+    }
+
 
     if (middleBtn.classList.contains('border') === true) {
     newBlueCards = [].concat(blueCards);
@@ -288,6 +360,10 @@ function getMainDeck () {
     newBlueCards = [].concat(getVeryLowBlueDeck ());
     newBrownCards = [].concat(getVeryLowBrownDeck ());
     newGreenCards = [].concat(getVeryLowGreennDeck ());
+    } else if (veryHighBtn.classList.contains('border') === true) {
+    newBlueCards = [].concat(getVeryHighBlueDeck ());
+    newBrownCards = [].concat(getVeryHighBrownDeck ());
+    newGreenCards = [].concat(getVeryHighGreennDeck ());
     }
 
     let ancientN = 0;
@@ -454,6 +530,7 @@ shuffle.addEventListener('click', () => {
     deck.style.visibility = `visible`;
     dotsContainer.style.visibility = `visible`;
     lastCard.style.visibility = `hidden`;
+    shuffle.style.visibility = `hidden`;
  
 
     // if (veryLowBtn.classList.contains('border') === true){               !!!!! Для уровней
